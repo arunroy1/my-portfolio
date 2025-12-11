@@ -1,0 +1,425 @@
+/*
+ * Hybrid Solution (hybrid.css)
+ * Author: Combined from styles.css by Arun Roy and ai-2.css
+ * This file combines the good elements from both source files
+ */
+
+ :root {
+    /* Primary color scheme from styles.css */
+    --primary: #2A5C82;
+    --secondary: #FF6B35;
+    --accent: #E9C46A;
+    --dark: #1A1A1A;
+    --light: #F8F9FA;
+    --text: #333;
+    
+    /* accent colors from ai-2.css */
+    --heading-color: #111111;
+    --divider-gradient-start: #FF6B35;
+    --divider-gradient-end: #E9C46A;
+    
+    /* Spacing and layout variables from styles.css */
+    --spacing: 1rem;
+    --max-width: 1200px;
+    --radius: 8px;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  /* 
+   * GLOBAL RESET
+   * From both styles.css and ai-2.css
+   */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* 
+   * SCROLLING BEHAVIOR
+   * From both sources with cool scrollbar from ai-2.css
+   */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar from ai-2.css */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--light);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+  }
+  
+  /* 
+   * BODY STYLES
+   * Base from styles.css with additions from ai-2.css
+   */
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--light);
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* 
+   * HEADER STYLES
+   * Gradient background from styles.css with centered layout
+   */
+  header {
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--light);
+    margin: 0 auto 1.5rem;
+    display: block;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: var(--light);
+    font-weight: 600;
+  }
+  
+  /* 
+   * NAVIGATION
+   * Combining the hover animations from styles.css with the clean layout from ai-2.css
+   */
+  nav {
+    padding: 1rem 0;
+    background: var(--light);
+    margin-bottom: 2rem;
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+    list-style: none;
+  }
+  
+  .nav-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Scaling animation from styles.css */
+  .nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--secondary);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .nav-links a:hover {
+    color: var(--secondary);
+    transform: translateY(-2px);
+  }
+  
+  .nav-links a:hover::before {
+    transform: scaleY(1);
+  }
+  
+  /* 
+   * Using max-width container from styles.css, with gradient dividers from ai-2.css
+   */
+  main {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  
+  section {
+    position: relative;
+    padding: 3rem 1rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeIn 0.6s ease-in;
+  }
+  
+  /* Gradient divider from ai-2.css */
+  section:not(:last-of-type)::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin: 2rem auto 0 auto;
+    border-radius: 2px;
+    background: linear-gradient(
+      to right,
+      var(--divider-gradient-start),
+      var(--divider-gradient-end)
+    );
+  }
+  
+  /* 
+   * HEADINGS
+   * Using color scheme from styles.css 
+   */
+  h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+  }
+  
+  /* 
+   * EDUCATION & EXPERIENCE SECTIONS
+   * Combining the centered layout from styles.css with card design from ai-2.css
+   */
+  #education, #experience {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .experience-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .experience-card {
+    background-color: var(--light);
+    padding: 1rem;
+    border-left: 6px solid var(--primary);
+    flex: 1 1 300px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    max-width: 400px;
+  }
+  
+  .experience-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* 
+   * PROJECT SECTION
+   * Taking the card design from styles.css with hover effects and layout from ai-2.css
+   */
+  .project-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .project-card {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0);
+    flex: 1 1 300px;
+    max-width: 400px;
+    border-left: 6px solid var(--secondary);
+  }
+  
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  
+  /* Shine effect from styles.css */
+  .project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.3) 100%
+    );
+    transform: skewX(-15deg);
+    transition: left 0.6s;
+  }
+  
+  .project-card:hover::after {
+    left: 150%;
+  }
+  
+  /* 
+   * IFRAME STYLING
+   * From styles.css
+   */
+  iframe {
+    display: block;
+    margin: 2rem auto;
+    max-width: 100%;
+  }
+  
+  /* 
+   * SKILLS & HOBBIES LISTS
+   * Centered layout from styles.css
+   */
+  .skills-list, .hobbies-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* 
+   * CONTACT SECTION
+   * Button styling from styles.css
+   */
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .contact-info a {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: all 0.3s ease;
+    margin: 0.5rem;
+  }
+  
+  .contact-info a:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+  }
+  
+  /* 
+   * FOOTER
+   * From ai-2.css with color scheme from styles.css
+   */
+  footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    background-color: var(--primary);
+    color: white;
+  }
+  
+  /* 
+   * ANIMATIONS
+   * FadeIn animation from ai-2.css
+   */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 
+   * RESPONSIVE DESIGN
+   * Combining media queries from both files
+   */
+  /* Tablets and desktops */
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .project-grid, .experience-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    iframe {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16/9;
+    }
+  }
+  
+  /* Mobile Phone */
+  @media (max-width: 480px) {
+    header {
+      padding: 3rem 0.5rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .subtitle {
+      font-size: 1rem;
+    }
+    
+    section {
+      padding: 2rem 0.5rem;
+    }
+    
+    .nav-links a {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .contact-info a {
+      padding: 0.5rem 1.5rem;
+      font-size: 0.9rem;
+    }
+  }

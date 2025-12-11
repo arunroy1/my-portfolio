@@ -1,0 +1,246 @@
+/* 
+  AI-Generated CSS (ai-2.css)
+  This style is inspired by the provided "Minimalist Graphic Design Portfolio Template" reference image,
+  featuring a clean layout, a bold black-and-yellow palette, and modern styling.
+*/
+
+/* Root Variables for Color Palette */
+:root {
+    --background-color: #ffffff;
+    --primary-color: #fdd835; /* Bold yellow accent */
+    --secondary-color: #333333; /* Dark grey for text */
+    --accent-color: #f9f9f9; /* Soft off-white */
+    --text-color: #333333;
+    --heading-color: #111111;
+    --divider-gradient-start: #fdd835;
+    --divider-gradient-end: #fbc02d; /* Slightly deeper yellow */
+  }
+  
+  /* Global Reset & Body */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--accent-color);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+  }
+  
+  /* Headers */
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+  
+  .profile-img {
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  
+  .title-wrapper h1 {
+    font-size: 2rem;
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+  
+  /* Navigation */
+  nav {
+    background-color: var(--accent-color);
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 1rem;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+  
+  /* Main Content */
+  main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Section Styling with Gradient Divider */
+  section {
+    position: relative;
+    padding: 2rem 0;
+    animation: fadeIn 0.6s ease-in;
+  }
+  
+  section:not(:last-of-type)::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin: 2rem auto 0 auto;
+    border-radius: 2px;
+    background: linear-gradient(
+      to right,
+      var(--divider-gradient-start),
+      var(--divider-gradient-end)
+    );
+  }
+  
+  /* Headings */
+  h2 {
+    font-size: 1.75rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Experience */
+  .experience-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .experience-card {
+    background-color: var(--accent-color);
+    padding: 1rem;
+    border-left: 6px solid var(--primary-color);
+    flex: 1 1 300px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .experience-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Projects */
+  .project-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .project-card {
+    background-color: var(--accent-color);
+    padding: 1rem;
+    border-left: 6px solid var(--secondary-color);
+    flex: 1 1 300px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* Lists */
+  .skills-list,
+  .hobbies-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+  }
+  
+  /* Contact & Footer */
+  footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    background-color: var(--accent-color);
+  }
+  
+  .contact-info a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-info a:hover {
+    color: var(--primary-color);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Theme Switcher Overrides (Minimal adjustments) */
+  .theme-switcher {
+    background-color: #fff;
+  }
+  
+  .theme-button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Responsive (Mobile Optimization) */
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  
+    .experience-grid,
+    .project-grid {
+      flex-direction: column;
+    }
+  }  

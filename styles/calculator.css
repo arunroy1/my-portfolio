@@ -1,0 +1,105 @@
+/* Reset & Body */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #000;
+  color: #fff;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Calculator Grid */
+#calculator {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  grid-auto-rows: 80px;
+  gap: 10px;
+  background: #111;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+/* Displays */
+#calculation, #display {
+  grid-column: 1 / -1;
+  background: transparent;
+  border: none;
+  padding: 0 10px;
+  text-align: right;
+  font-family: monospace;
+}
+#calculation { color: #888; font-size: 1.2rem; height: 40px; }
+#display     { color: #fff;   font-size: 2rem; height: 60px; }
+
+/* Buttons Base */
+button {
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  outline: none;
+  transition: filter 0.1s;
+  background: #333;
+  color: #fff;
+  border-radius: 50%;
+}
+button:active { filter: brightness(1.2); }
+
+/* Number Keys */
+.num { background: #333; }
+
+/* Operator Keys */
+.op  { background: #f90; color: #000; }
+
+/* Function Keys (AC, +/-, %, M*, etc.) */
+.fn  { background: #666; }
+
+/* Zero spans two columns */
+.zero { grid-column: span 2; }
+
+/* Highlight MC when memory ≠ 0 */
+#mc.active { box-shadow: inset 0 0 0 4px #f90; }
+
+/* ——— NEW: Memory‐button overrides ——— */
+.mem-btn {
+  /* smaller oval button */
+  width: 60px;
+  height: 36px;
+  border-radius: 18px;
+  /* center within grid cell */
+  justify-self: center;
+  align-self: center;
+  font-size: 1rem;
+}
+
+/* Back to Portfolio button */
+.back-btn {
+  display: inline-block;
+  padding: 0.5em 1em;
+  background-color: #333;       /* dark grey button */
+  color: #f90;                  /* orange text */
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.back-btn:hover {
+  background-color: #555;       /* lighter grey on hover */
+  color: #fff;                  /* white text on hover */
+}
+
+/* Responsive */
+@media (max-width:400px){
+  #calculator { grid-template-columns: repeat(4,60px); grid-auto-rows:60px; gap:5px; }
+  .mem-btn { width: 50px; height: 30px; border-radius: 15px; font-size: 0.9rem; }
+  button { font-size:1.2rem; }
+  #display { font-size:1.6rem; }
+}

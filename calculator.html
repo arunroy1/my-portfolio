@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>JavaScript Calculator</title>
+  <link rel="stylesheet" href="styles/calculator.css">
+  <script defer src="scripts/calculator.js"></script>
+</head>
+<body>
+  <div id="calculator" aria-label="Calculator">
+    <!-- Displays -->
+    <input type="text" id="calculation" disabled aria-label="Full calculation">
+    <input type="text" id="display" disabled aria-label="Current input or result">
+
+    <!-- Memory buttons (now have .mem-btn class) -->
+    <button id="mc"  class="fn mem-btn" value="MC">MC</button>
+    <button id="mr"  class="fn mem-btn" value="MR">MR</button>
+    <button       class="fn mem-btn" value="M+">M+</button>
+    <button       class="fn mem-btn" value="M-">M-</button>
+
+    <!-- Core functions -->
+    <button class="fn" value="AC">AC</button>
+    <button class="fn" value="+/-">+/-</button>
+    <button class="fn" value="%">%</button>
+    <button class="op" value="/">÷</button>
+
+    <!-- Number & operator rows -->
+    <button class="num" value="7">7</button>
+    <button class="num" value="8">8</button>
+    <button class="num" value="9">9</button>
+    <button class="op"  value="*">×</button>
+
+    <button class="num" value="4">4</button>
+    <button class="num" value="5">5</button>
+    <button class="num" value="6">6</button>
+    <button class="op"  value="-">−</button>
+
+    <button class="num" value="1">1</button>
+    <button class="num" value="2">2</button>
+    <button class="num" value="3">3</button>
+    <button class="op"  value="+">+</button>
+
+    <!-- Zero spans two columns -->
+    <button class="num zero" value="0">0</button>
+    <button class="num" value=".">.</button>
+    <button class="op"  value="=">=</button>
+  </div>
+
+  <p style="text-align:center; margin-top:20px;">
+    <a href="index.html" class="back-btn">← Back to Portfolio</a>
+  </p>
+</body>
+</html>
