@@ -1,0 +1,236 @@
+/* ai-1.css */
+/*
+ Author: Arun Roy
+ */
+/* Root Variables for Color Scheme and Typography */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #343a40;
+    --accent-color: #ffc107;
+    --card-bg: #ffffff;
+    --header-bg: #ffffff;
+    --footer-bg: #343a40;
+}
+
+/* Global Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: var(--header-bg);
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+header img.profile-img {
+    border-radius: 50%;
+    margin-right: 20px;
+    max-width: 150px;
+}
+
+header .title-wrapper {
+    flex: 1;
+}
+
+header .title-wrapper h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+header .title-wrapper .subtitle {
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+
+/* Navigation Styling */
+nav {
+    background-color: #fff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+nav .nav-links li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav .nav-links li a:hover {
+    color: var(--accent-color);
+}
+
+/* Main Content & Section Styling */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main section {
+    margin-bottom: 40px;
+}
+
+main section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Grid Layouts for Experience and Projects */
+.experience-grid,
+.project-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.experience-card,
+.project-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover,
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Styling for Skills and Hobbies Lists */
+.skills-list,
+.hobbies-list {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.skills-list li,
+.hobbies-list li {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--footer-bg);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin: 0 5px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* Responsive Iframe */
+iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Theme Switcher Styling */
+.theme-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    padding: 12px;
+    z-index: 1000;
+}
+
+.theme-switcher h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.theme-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.theme-button {
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.theme-button:hover {
+    background-color: #e0e0e0;
+}
+
+.theme-button.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: #0069d9;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}

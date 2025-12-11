@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arun Roy - Portfolio</title>
+    <meta name="description" content="Personal portfolio of Arun Roy">
+    <meta name="keywords" content="portfolio, web development, student">
+    <link rel="icon" type="image/LOGO"
+          href="https://static-00.iconduck.com/assets.00/augmented-reality-icon-1024x1022-5ltmxbxf.png">
+    <link rel="stylesheet" href="styles/styles.css" id="css-theme">
+
+    <style>
+        /* Theme Switcher Styling */
+        .theme-switcher {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            z-index: 1000;
+        }
+        .theme-switcher h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .theme-buttons { display: flex; gap: 8px; }
+        .theme-button {
+            padding: 8px 12px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .theme-button:hover { background-color: #e0e0e0; }
+        .theme-button.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #0069d9;
+        }
+    </style>
+</head>
+<body>
+<header>
+  <img src="images/arun profile pic.jpg"
+       alt="Arun Roy's profile picture"
+       class="profile-img" width="300">
+  <div class="title-wrapper">
+    <h1>Arun Roy</h1>
+    <p class="subtitle">Student at SFSU</p>
+  </div>
+</header>
+
+<nav>
+  <ol class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="calculator.html">Calculator</a></li>
+    <li><a href="https://csc317-group-g.onrender.com/" target="_blank">Recipe Explorer</a></li>
+  </ol>
+</nav>
+
+<iframe width="560" height="315"
+        src="https://www.youtube.com/embed/k3hVP353ZTk?si=T3yIgtdwkuVkpKIh"
+        title="YouTube video player" style="border:0;"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+               picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+</iframe>
+
+<main>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hello, I'm Arun Roy, a Computer Science major at San Francisco State
+      University. My passion for software development stems from a deep
+      curiosity about how applications are built and function. I am
+      continuously working to enhance my coding skills by taking university
+      courses as well as online programs through platforms like Coursera.
+      Beyond academics, I have a strong interest in outdoor activities,
+      particularly tennis, badminton, and soccer. I am actively seeking
+      Summer 2025 internship opportunities where I can apply my technical
+      knowledge, collaborate on impactful projects, and further develop as a
+      software developer.
+    </p>
+    <h2>From Concord</h2>
+    <img src="images/Concord.jpg" alt="Image of Concord"
+         class="Hometown-img" width="500">
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <img src="images/sfsulogo.jpg" alt="San Francisco State University Logo" width="200">
+    <h3>San Francisco State University</h3>
+    <p>Bachelor of Science in Computer Science</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="experience-grid">
+      <div class="experience-card">
+        <h3>AI Chatbot Developer – Virtual Assistant for Mental Health</h3>
+        <p>Built an AI chatbot using Python and OpenAI’s GPT API with sentiment analysis and Firebase authentication.</p>
+      </div>
+      <div class="experience-card">
+        <h3>Game Developer – Indie Game Studio</h3>
+        <p>Developed a 2D platformer game in Godot, implemented custom AI, and gained 5K+ downloads on Steam & itch.io.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+
+      <!-- JavaScript Calculator -->
+      <article class="project-card" onclick="window.location.href='calculator.html'" style="cursor:pointer;">
+        <h3>JavaScript Calculator</h3>
+        <img src="images/calculator-preview.jpg"
+             alt="Screenshot of JS calculator"
+             class="project-img"
+             style="max-width:250px; width:100%; height:auto;">
+        <p>
+          A fully-functional calculator modeled on iOS/Android:
+          supports basic arithmetic, percentage, sign toggle, clear, and keyboard input.
+          Built with vanilla JavaScript (ES6+), secure expression evaluation, and CSS.
+        </p>
+        <p><strong>Technologies:</strong> HTML · CSS · JavaScript</p>
+      </article>
+
+      <!-- Portfolio Website -->
+      <article class="project-card" onclick="window.location.href='index.html'" style="cursor:pointer;">
+        <h3>Portfolio Website</h3>
+        <img src="images/portfolio-preview.jpeg"
+             alt="Screenshot of Portfolio"
+             class="project-img"
+             style="max-width:250px; width:100%; height:auto;">
+        <p>This site you’re viewing right now—my personal portfolio showcasing my projects and skills.</p>
+      </article>
+
+      <!-- Recipe Explorer -->
+      <article class="project-card" onclick="window.location.href='https://csc317-group-g.onrender.com/'" style="cursor:pointer;">
+        <h3>Recipe Explorer</h3>
+        <img src="images/recipe-explorer-preview.png"
+             alt="Screenshot of Recipe Explorer"
+             class="project-img"
+             style="max-width:250px; width:100%; height:auto;">
+        <p>
+          A recipe sharing website which lets users share their favorite recipes.
+        </p>
+        <p><strong>Technologies:</strong> HTML · CSS · JavaScript · EJS · Express · Node.js</p>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>Python</li>
+      <li>Git</li>
+    </ul>
+  </section>
+
+  <section id="hobbies">
+    <h2>My Hobbies</h2>
+    <ul class="hobbies-list">
+      <li>Tennis</li>
+      <li>Badminton</li>
+      <li>Soccer</li>
+      <li>Reading</li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <section id="contact" class="contact-info">
+    <h2>Contact</h2>
+    <p>
+      <a href="mailto:arunroymadappallil@gmail.com">Email</a>
+      <a href="https://github.com/arunroy1" target="_blank">GitHub</a>
+    </p>
+    <p>Copyright &copy; Arun Roy 2025</p>
+    <button class="theme-toggle" aria-label="Toggle dark mode">🔆</button>
+  </section>
+</footer>
+
+<!-- Theme Switcher -->
+<div class="theme-switcher">
+  <h3>Theme Switcher</h3>
+  <div class="theme-buttons">
+    <button class="theme-button active" data-theme="styles">Hand-Written</button>
+    <button class="theme-button" data-theme="ai-1">AI 1</button>
+    <button class="theme-button" data-theme="ai-2">AI 2</button>
+    <button class="theme-button" data-theme="hybrid">Hybrid</button>
+  </div>
+</div>
+
+<!-- Theme Switcher Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeButtons = document.querySelectorAll('.theme-button');
+    const themeStylesheet = document.getElementById('css-theme');
+
+    function setActiveTheme(themeName) {
+      themeStylesheet.href = `styles/${themeName}.css`;
+      themeButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.theme === themeName);
+      });
+      localStorage.setItem('preferredTheme', themeName);
+    }
+
+    themeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setActiveTheme(btn.dataset.theme);
+      });
+    });
+
+    const saved = localStorage.getItem('preferredTheme');
+    if (saved) setActiveTheme(saved);
+  });
+</script>
+
+<script>
+  const themeToggle = document.querySelector('.theme-toggle');
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+    themeToggle.textContent = '🌙';
+  }
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const dark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', dark);
+    themeToggle.textContent = dark ? '🌙' : '🔆';
+  });
+</script>
+</body>
+</html>
