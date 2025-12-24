@@ -1,0 +1,478 @@
+/* 
+   Theme: Diary (Handwritten / Scrapbook)
+   Author: Arun Roy
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Indie+Flower&family=Patrick+Hand&display=swap');
+
+:root {
+    --primary: #2c3e50;
+    /* Ink Blue */
+    --secondary: #d35400;
+    /* Burnt Orange */
+    --accent: #f1c40f;
+    /* Highlighter Yellow */
+    --paper: #fdfbf7;
+    /* Cream Paper */
+    --line: #e1e8ed;
+    /* Ruled Line */
+    --text: #2f3640;
+    /* Pencil Graphite */
+    --shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset & Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: transparent;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.2rem;
+    color: var(--text);
+    line-height: 2rem;
+    padding-bottom: 50px;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: 'Caveat', cursive;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 2rem;
+    transform: rotate(-2deg);
+}
+
+h2 {
+    font-size: 2.8rem;
+    text-decoration: underline wavy var(--secondary);
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+/* Header & Nav */
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: transparent;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    border: 10px solid white;
+    box-shadow: var(--shadow);
+    margin: 0 auto 1.5rem;
+    transform: rotate(3deg);
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: rotate(0) scale(1.1);
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(253, 251, 247, 0.9);
+    border-bottom: 2px dashed var(--primary);
+    padding: 0.5rem 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary);
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 20px 5px 20px 5px;
+    /* Organic shape */
+    transition: all 0.2s;
+}
+
+.nav-links a:hover {
+    background: var(--accent);
+    /* Highlighter effect */
+    color: var(--text);
+    transform: skew(-10deg);
+}
+
+/* Sections */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: center;
+    /* Center layout generally */
+}
+
+section {
+    margin-bottom: 5rem;
+    position: relative;
+    /* Add tape to corners of sections? Maybe too much */
+}
+
+/* Images in About/Education */
+.Hometown-img,
+#education img {
+    border: 12px solid white;
+    box-shadow: var(--shadow);
+    transform: rotate(-2deg);
+    margin: 2rem auto;
+    display: block;
+    max-width: 90%;
+}
+
+#education {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Project Cards - Polaroids */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    /* More space for rotation */
+    padding: 2rem;
+}
+
+/* Polaroid 3D Flip Cards */
+.project-card-container {
+    height: 480px;
+    /* Taller for polaroid style */
+    perspective: 1000px;
+    margin: 1rem;
+}
+
+.project-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-card-container:hover .project-card {
+    /* Flip + Scale reset from rotation */
+    transform: rotateY(180deg);
+    z-index: 50;
+}
+
+/* Apply random rotation to the CONTAINER so the flip axis is relative to it */
+.project-card-container:nth-child(odd) {
+    transform: rotate(-2deg);
+}
+
+.project-card-container:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.project-card-container:hover {
+    transform: scale(1.05) rotate(0deg);
+    /* Straighten on hover */
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.project-card-front,
+.project-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: white;
+    padding: 20px 20px 70px 20px;
+    /* Polaroid bottom padding */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Tape on Front Only */
+.project-card-front::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(3deg);
+    width: 140px;
+    height: 45px;
+    background-color: rgba(240, 230, 200, 0.8);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1;
+}
+
+.project-card-back {
+    transform: rotateY(180deg);
+    background: #fdfbf7;
+    /* Paper color */
+    background-image: repeating-linear-gradient(transparent, transparent 27px, #d0d0d0 28px);
+    background-size: 100% 28px;
+    padding: 40px 20px;
+    justify-content: start;
+    /* Align text top */
+}
+
+.project-card-front img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    filter: sepia(30%) contrast(1.1);
+    border: 1px solid #ccc;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.project-card h3 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 2rem;
+    color: var(--primary);
+    margin-top: auto;
+    /* Push to bottom area */
+    margin-bottom: 0.5rem;
+}
+
+.project-card-back h3 {
+    font-family: 'Indie Flower', cursive;
+    border-bottom: 2px solid var(--primary);
+    margin-bottom: 1rem;
+}
+
+.project-card-back p {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.card-btn {
+    background: var(--primary);
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.2rem;
+    color: white;
+    border: 2px dashed white;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+}
+
+.card-btn:hover {
+    transform: scale(1.1) rotate(-2deg);
+    background: var(--secondary);
+}
+
+.hint {
+    display: none;
+    /* No hint needed for rough look, or style it like "Turn me over" scribble? */
+}
+
+
+
+/* Experience Cards - Sticky Notes */
+.experience-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.experience-card {
+    background: #fff9c4;
+    /* Yellow sticky note */
+    padding: 2rem;
+    width: 300px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transform: rotate(1deg);
+    font-family: 'Indie Flower', cursive;
+}
+
+.experience-card:nth-child(even) {
+    background: #ffccbc;
+    /* Orange/Pink sticky note */
+    transform: rotate(-1deg);
+}
+
+.experience-card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+/* Skills as doodles */
+.skills-list,
+.hobbies-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.skills-list li,
+.hobbies-list li {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--text);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    /* Sketchy border */
+    transition: transform 0.2s;
+}
+
+.skills-list li:hover,
+.hobbies-list li:hover {
+    transform: scale(1.1);
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem;
+    margin-top: 4rem;
+    border-top: 2px dashed var(--primary);
+}
+
+.contact-info a {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    color: var(--secondary);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+}
+
+.contact-info a:hover {
+    border-bottom-color: var(--secondary);
+    transform: rotate(-3deg);
+}
+
+/* Theme Switcher */
+.theme-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    padding: 10px;
+    border: 2px solid var(--text);
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.theme-switcher h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.theme-button {
+    font-family: 'Patrick Hand', cursive;
+    background: white;
+    border: 2px solid var(--text);
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0 2px;
+}
+
+.theme-button:hover,
+.theme-button.active {
+    background: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    body {
+        background-size: 100% 1.5rem;
+        padding-bottom: 100px;
+    }
+}
+
+#paper-background {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background-color: var(--paper);
+    background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 100% 1.5rem;
+}
+
+#fluid-canvas {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+/* Handwriting Animation Cursor */
+.subtitle::after {
+    content: '|';
+    color: var(--primary);
+    animation: blink 0.8s infinite;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}

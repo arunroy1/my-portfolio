@@ -1,0 +1,417 @@
+/* 
+   Theme: Futuristic (Cyberpunk / Neon Glass)
+   Author: Arun Roy
+*/
+
+:root {
+  --primary: #00f3ff;
+  /* Neon Cyan */
+  --secondary: #bc13fe;
+  /* Neon Magenta */
+  --accent: #ffee00;
+  /* Cyber Yellow */
+  --dark: #050510;
+  /* Deep Space Black */
+  --glass: rgba(10, 10, 25, 0.7);
+  --border: rgba(0, 243, 255, 0.3);
+  --text: #e0e6ed;
+  --text-muted: #8b9bb4;
+  --shadow: 0 0 15px rgba(0, 243, 255, 0.1);
+  --radius: 12px;
+}
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--dark);
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  /* Fallback to modern sans */
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  /* Grid Background Animation */
+  background-image:
+    linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center top;
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  border-bottom: 2px solid var(--secondary);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Header & Nav */
+header {
+  padding: 6rem 1rem;
+  background: radial-gradient(circle at center, #1a1a2e 0%, var(--dark) 100%);
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  /* Hexagon or Circle? Stick to circle for now */
+  border: 4px solid var(--secondary);
+  box-shadow: 0 0 20px var(--secondary);
+  margin: 0 auto 2rem;
+  transition: transform 0.5s ease;
+}
+
+.profile-img:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+/* Navigation */
+nav {
+  background: rgba(5, 5, 16, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  position: relative;
+  padding: 0.5rem;
+  transition: color 0.3s;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Layout & Sections */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  /* Ensure mostly centered layout especially for about/experience */
+}
+
+section {
+  margin-bottom: 6rem;
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center content horizontally */
+}
+
+/* Specific fix for Education to prevent overlap and ensuring stacking */
+#education {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+#education img {
+  max-width: 250px;
+  height: auto;
+  display: block;
+}
+
+/* About Section Images */
+.Hometown-img {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+  border-radius: var(--radius);
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+}
+
+/* Cards (Projects & Experience) */
+/* Cards (Projects & Experience) */
+.project-grid,
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* 3D Flip Card Container */
+.project-card-container {
+  perspective: 1000px;
+  height: 450px;
+}
+
+.project-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+.project-card-container:hover .project-card {
+  transform: rotateY(180deg);
+}
+
+.project-card-front,
+.project-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius);
+  background: var(--glass);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
+}
+
+.project-card-back {
+  transform: rotateY(180deg);
+  background: rgba(5, 5, 16, 0.95);
+  /* Darker background for text readability */
+  border-color: var(--secondary);
+  overflow-y: auto;
+}
+
+/* Experience Card (Static - No Flip) */
+.experience-card {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  transition: all 0.4s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+}
+
+.project-card h3,
+.experience-card h3 {
+  color: var(--secondary);
+  font-size: 1.5rem;
+  text-shadow: none;
+  margin-bottom: 1rem;
+}
+
+.project-card-front img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+  filter: grayscale(40%);
+  transition: filter 0.3s;
+}
+
+.project-card-container:hover .project-card-front img {
+  filter: grayscale(0%);
+}
+
+/* Contact Section & Footer */
+footer {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: var(--dark);
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+}
+
+.contact-info a {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+.contact-info a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary);
+  z-index: -1;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.contact-info a:hover {
+  color: var(--dark);
+  box-shadow: 0 0 20px var(--primary);
+}
+
+.contact-info a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Theme Switcher (Keeping it usable but styled) */
+.theme-switcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(5, 5, 16, 0.95);
+  border: 1px solid var(--secondary);
+  border-radius: 12px;
+  padding: 15px;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(188, 19, 254, 0.2);
+}
+
+.theme-switcher h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.theme-button {
+  background: transparent;
+  border: 1px solid var(--text-muted);
+  color: var(--text-muted);
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+}
+
+.theme-button:hover,
+.theme-button.active {
+  border-color: var(--secondary);
+  color: var(--secondary);
+  box-shadow: 0 0 10px rgba(188, 19, 254, 0.4);
+}
+
+/* Scroll Reveal */
+.reveal-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typing Effect */
+.subtitle::after {
+  content: '_';
+  color: var(--secondary);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav {
+    position: relative;
+  }
+}
