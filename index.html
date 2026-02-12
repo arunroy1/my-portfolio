@@ -9,7 +9,7 @@
   <meta name="keywords" content="portfolio, web development, student">
   <link rel="icon" type="image/LOGO"
     href="https://static-00.iconduck.com/assets.00/augmented-reality-icon-1024x1022-5ltmxbxf.png">
-  <link rel="stylesheet" href="styles/styles.css" id="css-theme">
+  <link rel="stylesheet" href="styles/default.css" id="css-theme">
 
   <style>
     /* Default Hidden for Special Backgrounds */
@@ -231,9 +231,7 @@
   <div class="theme-switcher">
     <h3>Theme Switcher</h3>
     <div class="theme-buttons">
-      <button class="theme-button active" data-theme="styles">Hand-Written</button>
-      <button class="theme-button" data-theme="hybrid">Hybrid</button>
-      <button class="theme-button" data-theme="futuristic">Futuristic</button>
+      <button class="theme-button active" data-theme="default">Default</button>
       <button class="theme-button" data-theme="diary">Diary</button>
     </div>
   </div>
@@ -260,7 +258,11 @@
       });
 
       const saved = localStorage.getItem('preferredTheme');
-      if (saved) setActiveTheme(saved);
+      if (saved === 'hybrid') {
+        setActiveTheme('default');
+      } else if (saved) {
+        setActiveTheme(saved);
+      }
     });
   </script>
 
