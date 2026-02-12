@@ -8,6 +8,16 @@ package-lock.json
 # Logs
 logs/
 
+# macOS
+.DS_Store
+
+# node.js
+node_modules/
+package-lock.json
+
+# Logs
+logs/
+
 # Temporary files
 tmp/
 *.tmp
@@ -15,4 +25,3 @@ tmp/
 # IDE specific files
 .idea/
 .vscode/
-
